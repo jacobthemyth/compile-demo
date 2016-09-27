@@ -1,4 +1,7 @@
-# Compile-demo
+# compile-demo
+
+A demo application I'm using to play with some ideas I have for a future
+project.
 
 ## Getting Started
 
