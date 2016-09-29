@@ -1,14 +1,11 @@
 # See https://houndci.com/configuration for help.
-haml:
-  # config_file: .haml-style.yml
+eslint:
+  config_file: .eslintrc
   enabled: true
 javascript:
-  # config_file: .javascript-style.json
-  enabled: true
-  # ignore_file: .javascript_ignore
+  enabled: false
 ruby:
-  # config_file: .ruby-style.yml
   enabled: true
 scss:
-  # config_file: .scss-style.yml
+  config_file: .scss-style.yml
   enabled: true
