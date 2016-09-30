@@ -11,6 +11,10 @@ en:
       playground:
         create: "Save"
 
+  playgrounds:
+    create:
+      success: "Playground saved!"
+
   time:
     formats:
       default:
