@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :playgrounds
+
   class Token
     class << self
       def new
