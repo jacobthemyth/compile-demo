@@ -12,6 +12,9 @@ class PlaygroundsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   private
 
   def build_playground
