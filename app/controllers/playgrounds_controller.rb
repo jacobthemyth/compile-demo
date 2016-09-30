@@ -6,6 +6,7 @@ class PlaygroundsController < ApplicationController
   def create
     @playground = build_playground
     if @playground.save
+      flash[:notice] = t(".success")
       redirect_to edit_playground_path(@playground)
     else
       render :new
