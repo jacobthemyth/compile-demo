@@ -14,6 +14,6 @@ module ApplicationHelper
       EOS
   end
 
-  def data_uri_for_playground
+  def data_uri_for_playground(playground)
   end
 end
