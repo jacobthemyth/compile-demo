@@ -13,4 +13,7 @@ module ApplicationHelper
         </html>
       EOS
   end
+
+  def data_uri_for_playground
+  end
 end
