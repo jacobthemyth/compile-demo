@@ -1,6 +1,6 @@
 class PlaygroundsController < ApplicationController
   def new
-    @playground = build_playground
+    @playground = Playground.new
   end
 
   def create
@@ -20,6 +20,10 @@ class PlaygroundsController < ApplicationController
   private
 
   def build_playground
-    current_user.playgrounds.build
+    current_user.playgrounds.build(playground_params)
+  end
+
+  def playground_params
+    params.require(:playground).permit(:html, :css, :js)
   end
 end
