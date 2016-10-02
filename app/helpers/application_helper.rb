@@ -15,5 +15,6 @@ module ApplicationHelper
   end
 
   def data_uri_for_playground(playground)
+    "data:text/html;charset=utf-8,"
   end
 end
