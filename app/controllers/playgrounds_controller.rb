@@ -14,6 +14,7 @@ class PlaygroundsController < ApplicationController
   end
 
   def edit
+    @playground = Playground.find(params[:id])
   end
 
   private
