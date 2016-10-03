@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+# :nodoc:
 class PlaygroundsController < ApplicationController
   def new
     @playground = Playground.new
@@ -6,7 +8,7 @@ class PlaygroundsController < ApplicationController
   def create
     @playground = build_playground
     if @playground.save
-      flash[:notice] = t(".success")
+      flash[:notice] = t('.success')
       redirect_to edit_playground_path(@playground)
     else
       render :new

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+# Allows a controller to access the current user
 module Authentication
   def current_user
     if session[:remember_token].present?

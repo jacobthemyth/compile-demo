@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
 describe User::Token do
@@ -8,4 +9,3 @@ describe User::Token do
     expect(User::Token.new).to eq token
   end
 end
-
