@@ -15,7 +15,7 @@ class PlaygroundsController < ApplicationController
   end
 
   def edit
-    @playground = Playground.find(params[:id])
+    @playground = find_playground
   end
 
   def update
@@ -27,7 +27,15 @@ class PlaygroundsController < ApplicationController
     end
   end
 
+  def show
+    @playground = find_playground
+  end
+
   private
+
+  def find_playground
+    Playground.find(params[:id])
+  end
 
   def build_playground
     current_user.playgrounds.build(playground_params)

@@ -5,7 +5,7 @@ RSpec.feature 'Creating a new Playground', js: true do
   scenario 'as a visitor' do
     html = '<h1>Mathematical!</h1>'
     css = 'h1 { color: rgb(127, 255, 0); }'
-    js = "window.coolGlobalVariable = 'COOL_GLOBAL_VARIABLE';"
+    js = 'window.coolGlobalVariable = "COOL_GLOBAL_VARIABLE";'
 
     visit root_path
 
@@ -41,8 +41,20 @@ RSpec.feature 'Creating a new Playground', js: true do
 
     fill_in input(:playground, :html), with: '<h2>Updated Title</h2>'
     click_on submit(:playground, :update)
+    expect(page).to have_content t('playgrounds.update.success')
 
     expect(page.field_labeled(input(:playground, :html)).value).to eq('<h2>Updated Title</h2>')
+    within_frame output_frame do
+      expect(page).to have_css('h2', text: 'Updated Title')
+    end
+
+    click_on 'Full Page'
+
+    expect(page).to have_current_path(%r{\A\/playgrounds\/[a-zA-Z0-9]+\Z})
+    expect(page).not_to have_field(input(:playground, :html))
+    expect(page).not_to have_field(input(:playground, :css))
+    expect(page).not_to have_field(input(:playground, :js))
+
     within_frame output_frame do
       expect(page).to have_css('h2', text: 'Updated Title')
     end
