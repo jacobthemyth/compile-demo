@@ -10,6 +10,7 @@ en:
     submit:
       playground:
         create: "Save"
+        update: "Save"
 
   playgrounds:
     create:

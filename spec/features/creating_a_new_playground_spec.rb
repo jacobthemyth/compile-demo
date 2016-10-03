@@ -38,6 +38,14 @@ RSpec.feature 'Creating a new Playground', js: true do
     expect(page.field_labeled(input(:playground, :html)).value).to eq(html)
     expect(page.field_labeled(input(:playground, :css)).value).to eq(css)
     expect(page.field_labeled(input(:playground, :js)).value).to eq(js)
+
+    fill_in input(:playground, :html), with: '<h2>Updated Title</h2>'
+    click_on submit(:playground, :update)
+
+    expect(page.field_labeled(input(:playground, :html)).value).to eq('<h2>Updated Title</h2>')
+    within_frame output_frame do
+      expect(page).to have_css('h2', text: 'Updated Title')
+    end
   end
 
   def output_frame

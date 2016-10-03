@@ -8,8 +8,7 @@ class PlaygroundsController < ApplicationController
   def create
     @playground = build_playground
     if @playground.save
-      flash[:notice] = t('.success')
-      redirect_to edit_playground_path(@playground)
+      redirect_to edit_playground_path(@playground), notice: t('.success')
     else
       render :new
     end
@@ -17,6 +16,15 @@ class PlaygroundsController < ApplicationController
 
   def edit
     @playground = Playground.find(params[:id])
+  end
+
+  def update
+    @playground = current_user.playgrounds.find(params[:id])
+    if @playground.update_attributes(playground_params)
+      redirect_to edit_playground_path(@playground), notice: t('.success')
+    else
+      render :edit
+    end
   end
 
   private
