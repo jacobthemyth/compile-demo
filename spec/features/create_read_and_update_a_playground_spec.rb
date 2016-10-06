@@ -35,9 +35,22 @@ RSpec.feature 'Creating, reading, and updating a Playground', js: true do
       expect(cool_global_variable).to eq('COOL_GLOBAL_VARIABLE')
     end
 
+    within('.file-drawer') do
+      expect(page).to have_css '.file-drawer__file', text: 'index.html'
+      expect(page).to have_css '.file-drawer__file', text: 'main.css'
+      expect(page).to have_css '.file-drawer__file', text: 'main.js'
+    end
+
     expect(page.field_labeled(input(:playground, :html)).value).to eq(html)
+
+    click_on "main.css"
     expect(page.field_labeled(input(:playground, :css)).value).to eq(css)
+
+    click_on "main.js"
     expect(page.field_labeled(input(:playground, :js)).value).to eq(js)
+
+    click_on "index.html"
+    expect(page.field_labeled(input(:playground, :html)).value).to eq(html)
 
     fill_in input(:playground, :html), with: '<h2>Updated Title</h2>'
     click_on submit(:playground, :update)
