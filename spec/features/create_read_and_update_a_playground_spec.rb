@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.feature 'Creating a new Playground', js: true do
+RSpec.feature 'Creating, reading, and updating a Playground', js: true do
   scenario 'as a visitor' do
     html = '<h1>Mathematical!</h1>'
     css = 'h1 { color: rgb(127, 255, 0); }'
