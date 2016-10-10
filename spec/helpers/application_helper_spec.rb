@@ -2,55 +2,6 @@
 require 'rails_helper'
 
 RSpec.describe ApplicationHelper do
-  describe '#html_document_string' do
-    it 'should be an empty document if given no arguments' do
-      result = helper.html_document_string
-
-      expect(result).to eq <<~EOS
-        <!DOCTYPE html>
-        <html lang="en">
-          <head>
-            <meta charset=utf-8>
-          </head>
-          <body>
-          </body>
-        </html>
-      EOS
-    end
-
-    it 'should accept content for the head' do
-      result = helper.html_document_string(head: 'HEAD')
-
-      expect(result).to eq <<~EOS
-        <!DOCTYPE html>
-        <html lang="en">
-          <head>
-            <meta charset=utf-8>
-            HEAD
-          </head>
-          <body>
-          </body>
-        </html>
-      EOS
-    end
-
-    it 'should accept content for the body' do
-      result = helper.html_document_string(body: 'BODY')
-
-      expect(result).to eq <<~EOS
-        <!DOCTYPE html>
-        <html lang="en">
-          <head>
-            <meta charset=utf-8>
-          </head>
-          <body>
-            BODY
-          </body>
-        </html>
-      EOS
-    end
-  end
-
   describe '#data_uri_for_playground' do
     it 'should start with a data scheme prefix and the html MIME type' do
       playground = build(:playground)
